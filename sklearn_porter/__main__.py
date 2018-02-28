@@ -8,6 +8,10 @@ import argparse
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from sklearn_porter.Porter import Porter
 
+def float_formatter(x):
+    if isinstance(x, float):
+        return '%.9ef' % (x,)
+    return str(x)
 
 def parse_args(args):
     parser = argparse.ArgumentParser(
@@ -95,7 +99,7 @@ def main():
 
     # Check input data:
     input_path = str(args.get('input'))
-    if not input_path.endswith('.pkl') or not os.path.isfile(input_path):
+    if not (input_path.endswith('.pkl') or input_path.endswith('.mdl')) or not os.path.isfile(input_path):
         error = 'No valid estimator in pickle format was found.'
         sys.exit('Error: {}'.format(error))
 
@@ -130,6 +134,7 @@ def main():
                                export_dir=dest_dir,
                                export_data=with_export,
                                export_append_checksum=with_checksum,
+                               num_format = float_formatter,
                                details=True)
     except Exception as exception:
         # Catch any exception and exit the process:

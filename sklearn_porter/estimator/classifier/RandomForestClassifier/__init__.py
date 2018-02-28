@@ -26,7 +26,7 @@ class RandomForestClassifier(Classifier):
             'if':       'if (features[{0}] {1} {2}) {{',
             'else':     '} else {',
             'endif':    '}',
-            'arr':      'classes[{0}] = {1}',
+            'arr':      'classes[{0}] += {1}',
             'indent':   '    ',
             'join':     '; ',
         },

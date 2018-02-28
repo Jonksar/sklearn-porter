@@ -1,5 +1,4 @@
-int {method_name}_{method_id}(float features[]) {{
-    int classes[{n_classes}];
+int {method_name}_{method_id}(float features[], int classes[]) {{
     {tree_branches}
     int class_idx = 0;
     int class_val = classes[0];
