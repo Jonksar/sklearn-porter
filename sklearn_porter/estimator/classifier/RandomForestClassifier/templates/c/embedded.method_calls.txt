@@ -1,1 +1,1 @@
-classes[{method_name}(features, classes)]++;
+classes[{method_name}(features, classes, probabilities)]++;

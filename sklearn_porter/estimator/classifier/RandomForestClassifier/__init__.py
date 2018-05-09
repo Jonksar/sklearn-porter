@@ -284,6 +284,7 @@ class RandomForestClassifier(Classifier):
         temp_single_method = self.temp('embedded.single_method')
         return temp_single_method.format(method_name=self.method_name,
                                          method_id=str(estimator_index),
+                                         n_estimators=str(self.n_estimators),
                                          n_classes=self.n_classes,
                                          tree_branches=tree_branches)
 

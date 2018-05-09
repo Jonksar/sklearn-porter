@@ -7,4 +7,32 @@
 
 {method}
 
+int main(int argc, const char * argv[]) {{
+    int n_classes = 2;
+
+    float features[argc-1];
+    float probabilities[ n_classes ];
+
+    for (int i = 1; i < argc; i++) {{
+        features[i-1] = atof(argv[i]);
+        printf("feature1 %d: %6.4f\n", i - 1, atof(argv[i]));
+    }}
+
+    for (int i = 1; i < argc; i++) {{
+        printf("feature2 %d: %6.4f\n", i - 1, features[i -1]);
+    }}
+
+    for (int i = 0; i < n_classes; i++) {{
+        probabilities[i] = 0;
+    }}
+
+    printf("prediction: %d\n", {method_name}(features, probabilities));
+
+    for (int i = 0; i < n_classes; i++) {{
+        printf("probability class ( %d ): %6.3f\n", i, probabilities[i]);
+    }}
+
+    return 0;
+}}
+
 #endif // FOREST_C
