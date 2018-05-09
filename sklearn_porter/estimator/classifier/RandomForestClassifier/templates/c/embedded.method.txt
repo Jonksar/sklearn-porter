@@ -6,8 +6,10 @@ int {method_name} (float features[], float probabilities[]) {{
 
     int classes[n_classes];
 
+    // reset
     for (int i = 0; i < n_classes; i++) {{
         classes[i] = 0;
+        probabilities[i] = 0;
     }}
 
     {method_calls}
